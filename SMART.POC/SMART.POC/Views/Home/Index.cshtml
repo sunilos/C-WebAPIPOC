@@ -1,0 +1,138 @@
+﻿
+
+@using SMART.Common;
+
+
+@{
+    ViewBag.Title = "index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>OptiAM AR | Andromeda Systems Incorporated</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    @Scripts.Render("~/bundles/AngularJS")
+
+    <script src="~/Scripts/Admin/adminApp.js"></script>
+
+    <style>
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
+    </style>
+
+</head>
+
+<body ng-app="admin">
+
+    <div>
+        <a href="~/Scripts/Smart/index.html">Test Angular</a> |
+        <a href="#!PropertyDescriptionCode">PropertyDescriptionCode</a> |
+        <a href="#!account">Account</a> |
+        <a href="#!loan/9">Loan</a> |
+        <a href="#!marksheet/0">Marskheet</a> |
+        <a href="~/Scripts/Smart/PropertyDescriptionCode.html">Property</a> |
+
+    </div>
+    <hr>
+    <div ng-view>TEST</div>
+    <div ng-controller="schedulerCtl">
+        
+        <H1>Add/Edit Property Desc Code</H1>
+        
+        <FORM name="frm">
+            <p ng-class="{'error':form.error,'success':!form.error }" ng-bind="form.message"> </p> -- {{form.error}}--
+            <table>
+                <tr>
+                    <td>
+                        <input type="hidden" ng-model="form.id" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>PropertyDescCode</td>
+                    <td><INPUT TYPE="text" ng-model="form.PropertyDescCode" required></td>
+                </tr>
+                <tr>
+                    <td>PropertyDescCodeDescription</td>
+                    <td><INPUT TYPE="text" ng-model="form.PropertyDescCodeDescription" required></td>
+                </tr>
+                <tr>
+                    <td>LoanProgram</td>
+                    <td><INPUT TYPE="text" ng-model="form.LoanProgram" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="Save" ng-click="submit()"></td>
+                </tr>
+            </table>
+            {{form}}
+        </FORM>
+    </div>
+    <hr>
+
+    <div ng-controller="schedulerListCtl">
+
+        <h1>Property Desc Codes List </h1>
+
+        <FORM name="frm">
+            <p style="color: green" ng-bind="searchForm.message"></p>
+            <table>
+                <tr>
+                    <td>Code: <INPUT TYPE="text" ng-model="searchForm.PropertyDescCode"></td>
+                    <td>Desc: <INPUT TYPE="text" ng-model="searchForm.PropertyDescCodeDescription"></td>
+                    <td><input type="button" value="Search" ng-click="search()"></td>
+                </tr>
+                {{searchForm}}
+            </table>
+        </FORM>
+
+        <table class="table table-bordered table-hover table-striped tablesorter">
+            <tr>
+                <td colspan="5" align="left">
+                    <input type="button" value="Previous" ng-click="previous()" ng-disabled="pageNo <=0">
+                </td>
+
+                <td colspan="4" align="right">
+                    <input type="button" value="Next" ng-click="next()">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <th>Id</th>
+                <th>PropertyDescCode</th>
+                <th>PropertyDescCodeDescription</th>
+                <th>LoanProgram</th>
+                <th>CreateDate</th>
+                <th>CreateUserID</th>
+                <th>LastUpdateDate</th>
+                <th>LastUpdateUserID</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="e in list">
+                <td>
+                    <input type="checkbox" ng-model="temp[$index]" ng-click="delete(e.id,temp[$index])">
+                </td>
+                <td style="width:100px;">{{e.ID}}</td>
+                <td>{{e.PropertyDescCode}}</td>
+                <td>{{e.PropertyDescCodeDescription}}</td>
+                <td>{{e.LoanProgram}}</td>
+                <td>{{e.CreateDate}}</td>
+                <td>{{e.CreateUserID}}</td>
+                <td>{{e.LastUpdateDate}}</td>
+                <td>{{e.LastUpdateUserID}}</td>
+                <td><input type="button" value="Delete" ng-click="delete(e.ID)"></td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+
+</body>
+</html>

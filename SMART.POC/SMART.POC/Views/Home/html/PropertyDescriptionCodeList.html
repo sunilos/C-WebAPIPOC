@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div ng-controller="schedulerListCtl">
+
+        <h2>Property Desc Codes </h2>
+
+        <FORM name="frm">
+            <p style="color: green" ng-bind="searchForm.message"></p>
+            <table>
+                <tr>
+                    <td>Code: <INPUT TYPE="text" ng-model="searchForm.PropertyDescCode"></td>
+                    <td>Desc: <INPUT TYPE="text" ng-model="searchForm.PropertyDescCodeDescription"></td>
+                    <td><input type="button" value="Search" ng-click="search()"></td>
+                </tr>
+                {{searchForm}}
+            </table>
+        </FORM>
+
+        <table class="table table-bordered table-hover table-striped tablesorter">
+            <tr>
+                <td colspan="5" align="left">
+                    <input type="button" value="Previous" ng-click="previous()" ng-disabled="pageNo <=0">
+                </td>
+
+                <td colspan="4" align="right">
+                    <input type="button" value="Next" ng-click="next()">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <th>Id</th>
+                <th>PropertyDescCode</th>
+                <th>PropertyDescCodeDescription</th>
+                <th>LoanProgram</th>
+                <th>CreateDate</th>
+                <th>CreateUserID</th>
+                <th>LastUpdateDate</th>
+                <th>LastUpdateUserID</th>
+            </tr>
+            <tr ng-repeat="e in list">
+                <td>
+                    <input type="checkbox" ng-model="temp[$index]" ng-click="delete(e.id,temp[$index])">
+                </td>
+                <td style="width:100px;">{{e.ID}}</td>
+                <td>{{e.PropertyDescCode}}</td>
+                <td>{{e.PropertyDescCodeDescription}}</td>
+                <td>{{e.LoanProgram}}</td>
+                <td>{{e.CreateDate}}</td>
+                <td>{{e.CreateUserID}}</td>
+                <td>{{e.LastUpdateDate}}</td>
+                <td>{{e.LastUpdateUserID}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

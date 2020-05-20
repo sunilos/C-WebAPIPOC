@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div ng-controller="schedulerCtl">
+        <H1>Property Desc Code</H1>
+        <FORM name="frm">
+            <p style="color: green" ng-bind="form.message"></p>
+            <table>
+                <tr>
+                    <td>
+                        <input type="hidden" ng-model="form.id" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>PropertyDescCode</td>
+                    <td><INPUT TYPE="text" ng-model="form.PropertyDescCode" required></td>
+                </tr>
+                <tr>
+                    <td>PropertyDescCodeDescription</td>
+                    <td><INPUT TYPE="text" ng-model="form.PropertyDescCodeDescription" required></td>
+                </tr>
+                <tr>
+                    <td>LoanProgram</td>
+                    <td><INPUT TYPE="text" ng-model="form.LoanProgram" required></td>
+                </tr>
+            </table>
+            {{form}}
+        </FORM>
+    </div>
+
+</body>
+</html>
