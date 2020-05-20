@@ -1,0 +1,141 @@
+﻿# ===============================
+# (c) Copyright by NCS^ Pvt. Ltd
+# AUTHOR       : RAJENDRA VERMA
+# CREATE DATE  : 21 APRIL 2020
+# PURPOSE      : To configure the system with database and with key value pairs
+# SPECIAL NOTES:
+# ===============================
+# Change History: 
+# Rajendra Verma : 21 April 2020 : change Database from SMART to SMART_1675
+# ==================================
+
+#1.  Build Information, set at the time deploymnet by deployment lead
+build.Date = 05/08/2014
+
+#2. Database configuration 
+smartwebdb.connection.string=Data Source=54.209.60.238;Initial Catalog=SMART_OPTIAM_DEV;User ID=sa;Password=GVw7ga8J*&:a[*KS;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+fhasldb.connection.string=Data Source=54.209.60.238;Initial Catalog=FHASL_DB;User ID=sa;Password=GVw7ga8J*&:a[*KS;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+smartdb.connection.string=Data Source=107.20.184.121;Initial Catalog=SMART_1675;User ID=sa;Password=Upendra1;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+smartdb2.connection.string=Data Source=54.209.60.238;Initial Catalog=SMART_1675;User ID=sa;Password=GVw7ga8J*&:a[*KS;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+gldb.connection.string=Data Source=54.209.60.238;Initial Catalog=GL_DB;User ID=sa;Password=GVw7ga8J*&:a[*KS;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+spsdb.connection.string=Data Source=54.209.60.238;Initial Catalog=SPS_DB;User ID=sa;Password=GVw7ga8J*&:a[*KS;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+cambudb.connection.string=Data Source=54.209.60.238;Initial Catalog=CAMBU;User ID=sa;Password=GVw7ga8J*&:a[*KS;Connect Timeout=900;Max Pool Size = 30;Pooling = True
+
+#3. Server IP address
+link.serverip=54.209.60.238
+
+#4. Webservices folder configuration
+SMARTMonitorServiceFolder=D:\IIS\GLSMARTMonitorService_1770\PAMGLMonitorService
+GLMonitorServiceFolder=D:\IIS\GLMonitorService_1772\GLMonitorService
+GLExceptionMonitorServiceFolder=D:\IIS\GLExceptionMonitorService_1771\PAMGLExceptionMonitorService
+MonitorServiceFolderFHASL=D:\IIS\FHASL_MonitorService_1815\SPS_MonitorService
+ExtractServiceFolderFHASL=D:\IIS\FHASL_ExtractService_1812\FHASL_ExtractService
+MonitorServiceFolderSPS=D:\IIS\SPS_MonitorService_1715\SPS_MonitorService
+ExtractServiceFolderSPS=D:\IIS\SPS_ExtractService_1712\SPS_ExtractService
+MonitorServiceFolderCAMBU=D:\IIS\CAMBU_MonitorService_1854\CAMBU_MonitorService
+
+#5. Windows Task Scheduler log files 
+window.scheduler.fileNameFHASL=D:\FHASLLog\FHASL_Windows_Scheduler_Log.txt
+window.scheduler.fileNameSPS=D:\SPSLog\SPS_Windows_Scheduler_Log.txt
+window.scheduler.fileNameGL=D:\GL_LOG\GL_Windows_Scheduler_Log.txt
+window.scheduler.fileNameCAMBU=D:\CAMBULog\CAMBU_Windows_Scheduler_Log.txt
+
+#6. FHASL Batch processing configuration
+ProcessFolder.Directory.locationFHASL=D:\FHASLBatchFile\
+ProcessFolder.ServerDirectory.locationFHASL=\
+
+#7. FHASL sftp configuration to send the file to client's environment
+sftp.hostFHASL=52.21.13.177
+sftp.userNameFHASL=rbapna
+sftp.passwordFHASL=rbapna
+
+#8. SPS Batch processing configuration
+ProcessFolder.Directory.locationSPS=D:\SPSBatchFile\
+ProcessFolder.ServerDirectory.locationSPS=\
+
+#9. SPS sftp configuration to send the file to client's environment
+sftp.hostSPS=52.21.13.177
+sftp.userNameSPS=rbapna
+sftp.passwordSPS=rbapna
+
+#10. CAMBU Batch processing configuration
+ProcessFolder.Directory.locationCAMBU=D:\CAMBUBatchFile\
+ProcessFolder.ServerDirectory.locationCAMBU=\
+CAMBUExcelFolder.Directory.location=D:\CAMBUEexcelReports\
+CaseCreationExcelFolder.Directory.location=D:\CaseExcelReports\
+BillingStatementReports.Directory.location=D:\BillingStatementsReports\
+Documnet.Directory = D:\Documents
+
+#11. CAMBU sftp configuration to send the file to client's environment
+sftp.hostCAMBU=52.21.13.177
+sftp.userNameCAMBU=rbapna
+sftp.passwordCAMBU=rbapna
+
+#12. Internal Configuration, Do not change it.
+ExcelFolder.Directory.location=C:\SFNWorkingReports\
+ReadINIFolder=3
+
+#13. Linked Server Name
+LinkedServer.db1=[54.209.60.238].[SMART_1675]
+
+#14. Add SMART User Web API URL
+addSMARTUserURL=https://smartnsc.com:1778/api/AddUserAPI/AddUser
+
+#15. SPS Database Name
+SPS_DB=SPS_DB
+
+#16. GL Database Name
+GL_DB=[GL_DB]
+
+#17. Generate Inventory Report URL
+InventoryReportURL=http://localhost:1799/api/GenerateReport/GenerateInventoryRpt
+
+#18. Inventory Report Folder
+ProcessFolder.Directory.locationInvRep=D:\InventoryReports\
+
+#19. True value of this property will email system errors to superadmin and admin email ids from DatabaseException class  
+emailException=false
+
+#20. Web Service Name
+serviceName=SMART Dashboard 1675
+
+#21. SMART WEB Database Name
+SMART_WEB_DB=SMART_WEB
+
+#22. Linked Server URL and Credentials
+LinkedServer.url=54.209.60.238
+LinkedServer.username=sa
+LinkedServer.password=GVw7ga8J*&:a[*KS
+#23. Property Inspection Image Path
+PropInspectionImgPath=~/Content/PropertyImages
+
+#24. Loan Search Documents Path
+LoanSearchDocumentsPath=~/Content/LoanDocuments
+
+#24. Bulk Document Upload raw folder location
+BulkDocumentUploadLocation=D:\IIS\ICDExternalDocumentProcessService_1800\ICDExternalDocumentProcessService\raw
+
+#24. Bulk Document Upload error folder location
+BulkDocumentUploadErrorFolderLocation=D:\IIS\ICDExternalDocumentProcessService_1800\ICDExternalDocumentProcessService\error
+#Service Exception Logs
+
+#GL Services
+log.exception.Service.1=D:\GL_LOG\GLSMARTMonitorService_1670.txt
+log.exception.Service.2=D:\GL_LOG\GLExceptionService_1671.txt
+log.exception.Service.3=D:\GL_LOG\GL_MonitorService_1672.txt
+log.exception.Service.4=D:\GL_LOG\GL_SweeperService_1673.txt
+log.exception.Service.5=D:\GL_LOG\GL_MailMonitorService_1674.txt
+log.exception.Service.12=D:\GL_LOG\FEDRAMP_SERVICE_LOG_1776.txt
+log.exception.Service.13=D:\GL_LOG\GL_ForeclosureMonitorService1.txt
+log.exception.Service.14=D:\SMART\BillingStatementService.txt
+log.exception.Service.15=D:\GL_LOG\ICDExternalDocumentProcessService_1800.txt
+#SPS Services
+log.exception.Service.6=D:\SPSLog\SPS_ExtractService_1712.txt
+log.exception.Service.7=D:\SPSLog\SPSMonitorService_1715.txt
+#FHASL Services
+log.exception.Service.8=D:\FHASLLog\FHASLExtractService_1812.txt
+log.exception.Service.9=D:\FHASLLog\FHASLMonitorService_1815.txt
+#CAMBU Services
+log.exception.Service.10=D:\CAMBULog\CAMBUBatchUploadService_1852.txt
+log.exception.Service.11=D:\CAMBULog\CAMBUMonitorService_1854.txt
+
